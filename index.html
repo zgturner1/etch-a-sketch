@@ -11,7 +11,7 @@
 <body>
     <div class="header">
         <div>Press D to toggle drawing on/off</div>
-        <div id="drawing-state">Drawing: on</div>
+        <div id="drawing-state">Drawing: ON</div>
     </div>
 
     <div class="middle-page">
@@ -19,7 +19,13 @@
             <button id="draw-button">Draw</button>
             <button id="erase-button">Erase</button>
         </div>
-        <div class="grid-container"></div>
+        <div class="grid-area">
+            <div class="grid-container"></div>
+            <div class="bottom-grid">
+                <input type="range" min="16" max="100" id="slider">
+                <div class="size-display">Size: 16</div>
+            </div>
+        </div>    
     </div>
 
     <div class="footer">Created by Zachary Turner, 2022<div>

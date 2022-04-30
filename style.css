@@ -20,6 +20,7 @@ body {
     display: flex;
     justify-content: center;
     font-size: 40px;
+    gap: 40px;
     padding: 20px;
 }
 
@@ -67,18 +68,9 @@ button:hover {
     padding: 0;
 }
 
-.grid-element {
-    height: 40px;
-    width: 40px;
-}
-
 .footer {
     justify-self: flex-end;
     display: flex;
     padding: 20px;
     justify-content: center;
-}
-
-.drawed {
-    background-color: black;
 }
