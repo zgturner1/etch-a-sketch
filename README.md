@@ -1,1 +1,3 @@
 # etch-a-sketch
+
+This is a project for the Odin Project that is meant to test my knowledge on the maniplulation of the DOM, as well as graphical user interfaces. This website is simple. It allows the user to draw a design on a pad that is provided. The user chan change the size from anywhere to 16x16 to 100x100. The user can change mods from 'draw', which allows the user to draw, to 'erase', which allows the user to erase their design, to 'rainbow mode' which chooses a random color for each tile. It also allows the user to choose their own color for the pad. By pressing D, they can toggle on or off the ability to make a design on the pad. The text at the top tells the user if drawing is toggled, as well as what mdoe they are currently in.
