@@ -2,13 +2,17 @@
 let mode = 'DRAW';
 let currentState = 'drawing';
 let currentColor = 'rgb(0, 0, 0)';
-let currentGridSize;
 
+const modeDiv = document.getElementById('mode');
 const gridContainer = document.querySelector(".grid-container");
 const drawButton = document.getElementById("draw-button");
 const eraseButton = document.getElementById("erase-button");
+const clearButton = document.getElementById("clear-button");
+const rainbowMode = document.getElementById('rainbow-mode');
+const colorSelector = document.querySelector('.color-selector');
 const body = document.querySelector('body');
 const slider = document.getElementById('slider');
+
 
 console.log(slider.value);
 
@@ -37,6 +41,12 @@ for(let i = 1; i <= 16*16; i++) {
                 gridElement.style.backgroundColor = currentColor;
             else if(mode == 'ERASE')
                 gridElement.style.backgroundColor = 'rgb(255, 255, 255)';
+            else if(mode == 'RAINBOW') {
+                randNum1 = Math.floor(Math.random() * 255+1);
+                randNum2 = Math.floor(Math.random() * 255+1);
+                randNum3 = Math.floor(Math.random() * 255+1);
+                gridElement.style.backgroundColor = `rgb(${randNum1}, ${randNum2}, ${randNum3})`;
+            }
         }
     })
 
@@ -45,12 +55,22 @@ for(let i = 1; i <= 16*16; i++) {
 
 drawButton.addEventListener('click', function(e) {
     mode = 'DRAW';
-    console.log(mode);
-})
+    modeDiv.innerText = 'Current Mode: Draw';
+});
 
 eraseButton.addEventListener('click', function(e) {
     mode = 'ERASE';
-    console.log(mode);
+    modeDiv.innerText = 'Current Mode: Erase';
+});
+
+clearButton.addEventListener('click', function(e) {
+    const gridElements = document.querySelectorAll('.grid-element');
+    gridElements.forEach(el => el.style.backgroundColor = 'rgb(255, 255, 255)');
+});
+
+rainbowMode.addEventListener('click', function(e) {
+    mode = 'RAINBOW';
+    modeDiv.innerText = 'Current Mode: Rainbow';
 })
 
 slider.addEventListener('change', function(e) {
@@ -69,10 +89,15 @@ slider.addEventListener('change', function(e) {
                     gridElement.style.backgroundColor = currentColor;
                 else if(mode == 'ERASE')
                     gridElement.style.backgroundColor = 'rgb(255, 255, 255)';
+                else if(mode == 'RAINBOW') {
+                    randNum1 = Math.floor(Math.random() * 255+1);
+                    randNum2 = Math.floor(Math.random() * 255+1);
+                    randNum3 = Math.floor(Math.random() * 255+1);
+                    gridElement.style.backgroundColor = `rgb(${randNum1}, ${randNum2}, ${randNum3})`;
+                }
             }
         });
         
-        console.log(gridElement);
         gridContainer.appendChild(gridElement);
     }
 });
@@ -81,4 +106,8 @@ slider.addEventListener('input', function(e) {
     const sizeDisplay = document.querySelector('.size-display');
 
     sizeDisplay.innerText = `Size: ${slider.value}`;
+});
+
+colorSelector.addEventListener('change', function(e) {
+    currentColor = this.value;
 });
